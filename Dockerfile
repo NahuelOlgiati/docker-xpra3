@@ -1,8 +1,7 @@
 FROM alpine:3.10
 
-MAINTAINER JAremko <w3techplaygound@gmail.com>
+MAINTAINER Olgiati Nahuel <nahuelolgiati@hotmail.com>
 
-# Kudos to @urzds for Xpra building example
 # NOTE: Don't forget to update xpra_sha file:
 #       sha1sum  "xpra-${XPRA_VERSION}.tar.xz" > xpra_sha
 ENV XPRA_VERSION=3.0
@@ -10,10 +9,6 @@ ENV XPRA_VERSION=3.0
 COPY video_dummy_patches /tmp/video_dummy_patches
 COPY xpra_sha /tmp/
 
-#RUN echo "http://nl.alpinelinux.org/alpine/v3.10/community" \
-#    >> /etc/apk/repositories \
-# Deps
-#    && apk --no-cache upgrade \
 RUN apk --no-cache upgrade \
     && apk --no-cache add \
     bash \
@@ -48,16 +43,13 @@ RUN apk --no-cache upgrade \
     py-netifaces \
     py-numpy \
     py-pillow \
-#    py-pycryptodome \
     py-rencode \
     py-six \
     py2-xxhash \
     shared-mime-info \
-#    websockify \
     x264 \
     xhost \
     xorg-server \
-#    xorg-x11-server-Xvfb \
 # Meta build-deps
     && apk --no-cache add --virtual build-deps \
     autoconf \

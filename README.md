@@ -10,7 +10,7 @@ docker run -d \
  -e XPRA_HTML="yes" \
  -e DISPLAY=:14 \
  -p 10000:10000 \
- jare/x11-bridge
+ nahuelolgiati/x11-bridge
 
 docker run -d \
  --name emacs-1 \
@@ -35,7 +35,7 @@ docker run -d \
  -p 22:22 \
  -v ~/.ssh/pub_rsa:/etc/pub-keys/me.pub \
  -e DISPLAY=:14 \
- jare/x11-bridge
+ nahuelolgiati/x11-bridge
 
 docker run -d \
  --name emacs-1 \
@@ -58,8 +58,6 @@ Then attach to the Xpra server via cmd tool or Xpra's GUI app:
  - With Windows client you'll need [`Pageant`](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) you can convert your rsa keys to `Pageant`'s format with [`PuTTYgen`](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
  - GUI app in your image may require`libGL.so.1` (provided by libgl1-mesa-glx on Ubuntu) and font
  - It is good idea to use [ssl proxy](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion) or mount a certificate (see Xpra start-up message) if you want to use tcp or html mode beyond local network
- - You can [modify the user](https://github.com/JAremko/docker-x11-bridge/blob/master/Dockerfile#L172)
- - To use Xpra mmap(Linux): `docker run ... -v /tmp/spacemacs-mmap/:/tmp/spacemacs-mmap/ ... jare/x11-bridge` and attach with `TMPDIR=/tmp/spacemacs-mmap/ xpra attach --mmap=yes --encoding=rgb --ssh="ssh -o StrictHostKeyChecking=no -p 22" ssh:xpra@localhost:14`
 
 
 *Webcam and sound are currently disabled*
