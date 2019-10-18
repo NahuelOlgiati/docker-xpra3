@@ -10,7 +10,7 @@ docker run -d \
  -e XPRA_HTML="yes" \
  -e DISPLAY=:14 \
  -p 10000:10000 \
- nahuelolgiati/x11-bridge
+ nahuelolgiati/xpra3
 
 docker run -d \
  --name emacs-1 \
@@ -35,7 +35,7 @@ docker run -d \
  -p 22:22 \
  -v ~/.ssh/pub_rsa:/etc/pub-keys/me.pub \
  -e DISPLAY=:14 \
- nahuelolgiati/x11-bridge
+ nahuelolgiati/xpra3
 
 docker run -d \
  --name emacs-1 \
