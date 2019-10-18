@@ -1,2 +1,2 @@
 #!/bin/sh
-docker image build -t nolgiati/x11-bridge .
+docker image build -t nolgiati/xpra3 .
